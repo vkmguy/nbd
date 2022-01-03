@@ -1,0 +1,50 @@
+Part 1 – Mountain trips
+1. Shortest (least stages) routes from Darjeeling to Sandakphu that can be used in winter
+MATCH path=shortestPath((town:town {name:"Darjeeling"})-[*1..4]-(peak:peak {name:"Sandakphu"}))
+WHERE ALL (relation IN relationships(path)  WHERE  relation.winter='true') RETURN path
+
+2. All routes you can use to get from Darjeeling to Sandakphu, sorted by the distance you need to travel
+MATCH paths=(town:town {name:"Darjeeling"})-[*1..5]-(peak:peak {name:"Sandakphu"}) WHERE ALL(n IN NODES(paths) WHERE SINGLE(nonDuplicatedNode IN NODES(paths)   WHERE  n=nonDuplicatedNode ))
+RETURN distinct(paths),reduce(total=0, n IN relationships(paths)|total+n.distance) AS distance ORDER BY distance
+
+3. All places you can get from Darjeeling using a twowheeler in the summer
+MATCH (town:town { name: "Darjeeling" }), p = ((town)-[:twowheeler{summer:"true"}]->(target)) return target
+
+-> No results found !!S
+
+Part 2 - Airlines
+Import data running task3.cypher. Write the following queries: 
+4.List of all airports sorted by number of flights starting in them
+MATCH (flight:Flight)-[:ORIGIN]->(airport:Airport) RETURN airport,count(flight) AS flights ORDER BY flights
+
+5.List of all airports you can reach (directly or indirectly) from LAX spending less than 3000
+MATCH paths = (origin:Airport { name:"LAX" })<-[*..5]->(destination:Airport)
+WHERE REDUCE(s = 0, n IN [x IN NODES(paths) WHERE 'Flight' IN LABELS(x)] | s + [(n)<-[:ASSIGN]-(f) | f.price][0]) < 3000
+RETURN paths
+
+6.Sort connections you can use to go from LAX to DAY by connection price
+match paths = (lax:Airport {name: "LAX"})-[*1..3]->(day:Airport {name: "DAY"})
+with paths as paths, reduce(totalPrice=0, c in relationships(paths) | totalPrice + c.price) as totalPrice
+return paths, totalPrice
+order by totalPrice
+--> No results found!!
+
+7.Cheapest connection from LAX to DAY
+match paths = (lax:Airport {name: "LAX"})-[*1..3]->(day:Airport {name: "DAY"})
+with paths as paths, reduce(totalPrice=0, c in relationships(paths) | totalPrice + c.price) as totalPrice
+return min(totalPrice)
+--> no results found !!
+
+8.Cheapest connection from LAX to DAY in business class
+MATCH path = (origin:Airport { name:"LAX" })<-[source:ORIGIN]-(:Flight)-[target:ORIGIN|DESTINATION*..5]->(destination:Airport {name: "DAY"})
+WITH path, REDUCE(sum = 0, n IN [p IN NODES(path) WHERE 'Flight' IN LABELS(p)] |sum + [(n)<-[:ASSIGN]-(ticket {class: 'business'}) | ticket.price][0]) as price 
+RETURN path, price
+ORDER BY price asc LIMIT 1
+-->No resutls found !!
+
+9.List of airlines sorted by the number of cities they offer connections to and from (unique cities taking part in :ORIGIN and :DESTINATION of Flight nodes handled by given airline)
+MATCH (oFlight:Flight)-[:ORIGIN]->(oAirport:Airport), (dFlight:Flight)-[:DESTINATION]->(dAirport:Airport)
+WHERE oFlight.airline=dFlight.airline
+RETURN oFlight.airline,count(distinct oAirport) as CountFromCity, count(distinct dAirport) as CountToCity
+
+10.Cheapest connection between 3 different airports

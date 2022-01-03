@@ -1,0 +1,121 @@
+1.Add 5 documents to the database (use your s# number for bucket name), each document should be a json with 4 fields of at least two different types
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 14:23:30 GMT
+Content-Type: application/json
+Content-Length: 0
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 14:44:19 GMT
+Content-Type: application/json
+Content-Length: 0
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 14:44:35 GMT
+Content-Type: application/json
+Content-Length: 0
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 14:44:46 GMT
+Content-Type: application/json
+Content-Length: 0
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 14:45:00 GMT
+Content-Type: application/json
+Content-Length: 0
+
+2.Retrieve one of your documents from the db
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8J9gnVr6t3+8PEUpkzGNlSDJ0u82XBQA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23686>; rel="up"
+Last-Modified: Sun, 02 Jan 2022 14:23:30 GMT
+ETag: "3CHzcEznfFPSfJzNS9EkAi"
+Date: Sun, 02 Jan 2022 14:54:52 GMT
+Content-Type: application/json
+Content-Length: 61
+
+{"name":"asus", "type":"laptop", "price":1025, "quantity":10}
+
+3.Modify one of your documents by adding a new field to the document
+
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 15:11:53 GMT
+Content-Type: application/json
+Content-Length: 0
+
+4.Modify one of your documents by deleting one field
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 16:16:12 GMT
+Content-Type: application/json
+Content-Length: 0
+
+5.Modify one of your documents by changing the value of its fields
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 16:18:16 GMT
+Content-Type: application/json
+Content-Length: 0
+
+6.Remove one document from the db
+
+HTTP/1.1 404 Object Not Found
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 16:20:05 GMT
+Content-Type: text/plain
+Content-Length: 10
+
+7.Try to retrieve non-existent document from the db
+HTTP/1.1 404 Object Not Found
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 16:20:05 GMT
+Content-Type: text/plain
+Content-Length: 10
+
+8.Add one json document to the db without specifying key under which it should be stored
+HTTP/1.1 201 Created
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Location: /buckets/s23686/keys/SX7IQ45ZAjfc0BiimQF5hiOtE2p
+Date: Sun, 02 Jan 2022 16:25:00 GMT
+Content-Type: application/json
+Content-Length: 0
+
+9.Retrieve document from task 8 from the db
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8J9gnVr6t+ucGEUpkzGNluOPrdpsvCwA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23686>; rel="up"
+Last-Modified: Sun, 02 Jan 2022 16:25:00 GMT
+ETag: "5dYvnk5b48fF3iN4hIHJv8"
+Date: Sun, 02 Jan 2022 16:26:04 GMT
+Content-Type: application/json
+Content-Length: 62
+
+{"name":"XIAOMI", "type":"laptop", "price":1800, "quantity":8}
+
+10.Delete document from task 8 from the db
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Sun, 02 Jan 2022 16:27:19 GMT
+Content-Type: application/json
+Content-Length: 0

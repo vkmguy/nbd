@@ -1,0 +1,457 @@
+﻿[
+  {
+    "person": {
+"identity": 1,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1964,
+"name": "Keanu Reeves"
+      }
+    },
+    "amount": 7
+  },
+  {
+    "person": {
+"identity": 2,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1967,
+"name": "Carrie-Anne Moss"
+      }
+    },
+    "amount": 3
+  },
+  {
+    "person": {
+"identity": 3,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1961,
+"name": "Laurence Fishburne"
+      }
+    },
+    "amount": 3
+  },
+  {
+    "person": {
+"identity": 4,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1960,
+"name": "Hugo Weaving"
+      }
+    },
+    "amount": 5
+  },
+  {
+    "person": {
+"identity": 12,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1975,
+"name": "Charlize Theron"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 16,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1962,
+"name": "Tom Cruise"
+      }
+    },
+    "amount": 3
+  },
+  {
+    "person": {
+"identity": 17,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1937,
+"name": "Jack Nicholson"
+      }
+    },
+    "amount": 5
+  },
+  {
+    "person": {
+"identity": 19,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1958,
+"name": "Kevin Bacon"
+      }
+    },
+    "amount": 3
+  },
+  {
+    "person": {
+"identity": 20,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1966,
+"name": "Kiefer Sutherland"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 22,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1968,
+"name": "Cuba Gooding Jr."
+      }
+    },
+    "amount": 4
+  },
+  {
+    "person": {
+"identity": 24,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1943,
+"name": "J.T. Walsh"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 34,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1961,
+"name": "Meg Ryan"
+      }
+    },
+    "amount": 5
+  },
+  {
+    "person": {
+"identity": 40,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1974,
+"name": "Jerry O'Connell"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 42,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1961,
+"name": "Bonnie Hunt"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 51,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1942,
+"name": "Marshall Bell"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 53,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1963,
+"name": "Helen Hunt"
+      }
+    },
+    "amount": 3
+  },
+  {
+    "person": {
+"identity": 54,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1963,
+"name": "Greg Kinnear"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 58,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1929,
+"name": "Max von Sydow"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 60,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1951,
+"name": "Robin Williams"
+      }
+    },
+    "amount": 3
+  },
+  {
+    "person": {
+"identity": 64,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1971,
+"name": "Rick Yune"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 65,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1940,
+"name": "James Cromwell"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 70,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1967,
+"name": "Steve Zahn"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 71,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1956,
+"name": "Tom Hanks"
+      }
+    },
+    "amount": 12
+  },
+  {
+    "person": {
+"identity": 77,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1962,
+"name": "Rosie O'Donnell"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 80,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1956,
+"name": "Nathan Lane"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 89,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1930,
+"name": "Gene Hackman"
+      }
+    },
+    "amount": 3
+  },
+  {
+    "person": {
+"identity": 94,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1954,
+"name": "Zach Grenier"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 120,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1967,
+"name": "Ben Miles"
+      }
+    },
+    "amount": 3
+  },
+  {
+    "person": {
+"identity": 127,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1982,
+"name": "Rain"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 133,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1968,
+"name": "Sam Rockwell"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 134,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1955,
+"name": "Gary Sinise"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 140,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1960,
+"name": "Oliver Platt"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 142,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1944,
+"name": "Danny DeVito"
+      }
+    },
+    "amount": 2
+  },
+  {
+    "person": {
+"identity": 146,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1955,
+"name": "Bill Paxton"
+      }
+    },
+    "amount": 3
+  },
+  {
+    "person": {
+"identity": 148,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1967,
+"name": "Philip Seymour Hoffman"
+      }
+    },
+    "amount": 2
+  }
+]

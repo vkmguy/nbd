@@ -1,0 +1,74 @@
+1. All movies
+Match(movie:Movie) return movie
+
+2. All movies in which Hugo Weaving played a role
+Match(actor{name:"Hugo Weaving"}) return actor
+
+3. Directors of movies in which Hugo Weaving played a role
+MATCH (actor: Person {name:"Hugo Weaving"})-[:ACTED_IN]->(movie)<-[:DIRECTED]-(director) RETURN DISTINCT director
+
+4. All actors playing in the same movies as Hugo Weaving
+MATCH (person: Person {name:"Hugo Weaving"})-[:ACTED_IN]->(movie)<-[:ACTED_IN]-(actor) RETURN DISTINCT actor
+
+5. All movies with actors starring in Matrix
+MATCH (movie:Movie {title: "The Matrix"})<-[:ACTED_IN]-(actor)-[:ACTED_IN]-> (movies) RETURN DISTINCT movies
+
+6. List of actors (actor = person playing in at least one movie) with amount of movies they played roles in
+MATCH (person:Person)-[:ACTED_IN]->(movie) with person,count(*) as amount WHERE amount>1 RETURN person,amount
+
+7. List of people who both wrote the screenplay and directed a movie, plus titles of such movies (screenwriter===director + movie title)
+MATCH(person)-[:WROTE]->(movie)<-[:DIRECTED]-(person) RETURN person,movie.title
+
+8. List of movies in which both Hugo Weaving and Keanu Reeves played a role
+MATCH (personA {name:"Hugo Weaving"})-[:ACTED_IN]->(movie)<-[:ACTED_IN]-( personB {name:"Keanu Reeves"}) RETURN movie
+
+9. Query or set of queries that will add Captain America:The First Avenger together with adding information about director, screenwriters and actors playing main roles. Use IMDB short info version http://www.imdb.com/title/tt0458339/ .
+//CREATE (HugoW:Person {name:'Hugo Weaving', born:1960})
+
+CREATE (CaptainAmericaFA:Movie {title:'Captain America:The First Avenger', released:2011, tagline:'Your Enemy is not what you expect'})
+CREATE (ChrisE:Person {name:'Chris Evans', born:1981})
+CREATE (SamuelLJ:Person {name:'Samuel L. Jackson', born:1948})
+CREATE (HayleyA:Person {name:'Hayley Atwell', born:1982})
+CREATE (SebastianS:Person {name:'Sebastian Stan', born: 1982})
+CREATE (TommyLJ:Person {name:'Tommy Lee Jones', born:1946})
+CREATE (DominicC:Person {name:'Dominic Cooper', born:1978})
+CREATE (RichardA:Person {name:'Richard Armitage', born:1971})
+CREATE (StanleyT:Person {name:'Stanley Tucci', born:1960})
+CREATE (TobyJ:Person {name:'Toby Jones', born:1966})
+CREATE (NeilMD:Person {name:'Neal McDonough', born:1966})
+CREATE (DerekL:Person {name:'Derek Luke', born:1974})
+CREATE (KennethC:Person {name:'Kenneth Choi', born:1971})
+CREATE (JJF:Person {name:'JJ Feild', born:1978})
+CREATE (LexS:Person {name:'Lex Shrapnel', born:1978})
+CREATE (MichaelB:Person {name:'Michael Brandon', born:1945})
+CREATE (MartinS:Person {name:'Martin Sherman', born:1966})
+CREATE (ChristopherM:Person {name:'Christopher Markus', born:1970})
+CREATE (StephenMF:Person {name:'Stephen McFeely', born:1970})
+CREATE (JoeS:Person {name:'Joe Simon', born:1913})
+CREATE (JoeJ:Person {name:'Joe Johnston', born:1950})
+
+CREATE
+(ChrisE)-[:ACTED_IN {roles:['Captain America']}]->(CaptainAmericaFA),
+(HugoW)-[:ACTED_IN {roles:['Johann Schmidt']}]->(CaptainAmericaFA),
+(SamuelLJ)-[:ACTED_IN {roles:['Nick Fury']}]->(CaptainAmericaFA),
+(HayleyA)-[:ACTED_IN {roles:['Peggy Carter']}]->(CaptainAmericaFA),
+(SebastianS)-[:ACTED_IN {roles:['James Buchanan \'Bucky\' Barnes']}]->(CaptainAmericaFA),
+(TommyLJ)-[:ACTED_IN {roles:['Colonel Chester Phillips']}]->(CaptainAmericaFA),
+(DominicC)-[:ACTED_IN {roles:['Howard Stark']}]->(CaptainAmericaFA),
+(RichardA)-[:ACTED_IN {roles:['Heinz Kruger']}]->(CaptainAmericaFA),
+(StanleyT)-[:ACTED_IN {roles:['Dr. Abraham Erskine']}]->(CaptainAmericaFA),
+(TobyJ)-[:ACTED_IN {roles:['Dr. Arnim Zola']}]->(CaptainAmericaFA),
+(NeilMD)-[:ACTED_IN {roles:['Timotht \'Dum Dum\' Dugan']}]->(CaptainAmericaFA),
+(DerekL)-[:ACTED_IN {roles:['Gabe Jones']}]->(CaptainAmericaFA),
+(KennethC)-[:ACTED_IN {roles:['Jim Morita']}]->(CaptainAmericaFA),
+(JJF)-[:ACTED_IN {roles:['James Montgomery Falsworth']}]->(CaptainAmericaFA),
+(LexS)-[:ACTED_IN {roles:['Gilmore Hodge']}]->(CaptainAmericaFA),
+(MichaelB)-[:ACTED_IN {roles:['Senator Brandt']}]->(CaptainAmericaFA),
+(MartinS)-[:ACTED_IN {roles:[' Martin T. Sherman']}]->(CaptainAmericaFA),
+(JoeJ)-[:DIRECTED]->(CaptainAmericaFA),
+(ChristopherM)-[:WROTE]->(CaptainAmericaFA),
+(StephenMF)-[:WROTE]->(CaptainAmericaFA),
+(JoeS)-[:WROTE]->(CaptainAmericaFA)
+
+10. Query that shows all information added in Query 9 (movie, actors, director, screenwriter)
+MATCH (movie:Movie {title:"Captain America:The First Avenger"})-[*1..4]-(all) RETURN all,movie

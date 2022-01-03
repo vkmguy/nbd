@@ -1,0 +1,14 @@
+﻿[
+  {
+    "h": {
+"identity": 4,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"born": 1960,
+"name": "Hugo Weaving"
+      }
+    }
+  }
+]

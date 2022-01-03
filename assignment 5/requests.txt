@@ -1,0 +1,34 @@
+1.Add 5 documents to the database (use your s# number for bucket name), each document should be a json with 4 fields of at least two different types
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"asus", "type":"laptop", "price":1025, "quantity":10}'  http://localhost:8098/buckets/s23686/keys/One
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"dell", "type":"laptop", "price":1124, "quantity":5}'  http://localhost:8098/buckets/s23686/keys/Two
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"ROG", "type":"pc", "price":2654, "quantity":25}'  http://localhost:8098/buckets/s23686/keys/Three
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"TUF", "type":"laptop", "price":2500, "quantity":15}'  http://localhost:8098/buckets/s23686/keys/Four
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"ACER", "type":"pc", "price":1314, "quantity":6}'  http://localhost:8098/buckets/s23686/keys/Five
+
+2.Retrieve one of your documents from the db
+curl -i http://localhost:8098/buckets/s23686/keys/One
+
+3.Modify one of your documents by adding a new field to the document
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"asus", "type":"laptop", "price":1074, "quantity":10, "country":"US"}'  http://localhost:8098/buckets/s23686/keys/One
+
+4.Modify one of your documents by deleting one field
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"asus", "type":"laptop", "price":1074, "quantity":10}'  http://localhost:8098/buckets/s23686/keys/One
+
+5.Modify one of your documents by changing the value of its fields
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"asus", "type":"laptop", "price":1000, "quantity":10}'  http://localhost:8098/buckets/s23686/keys/One
+
+6.Remove one document from the db
+curl -i -XDELETE http://localhost:8098/buckets/s23686/keys/One
+
+7.Try to retrieve non-existent document from the db
+curl -i http://localhost:8098/buckets/s23686/keys/One
+
+8.Add one json document to the db without specifying key under which it should be stored
+curl -i -H "Content-Type: application/json" -d '{"name":"XIAOMI", "type":"laptop", "price":1800, "quantity":8}'  http://localhost:8098/buckets/s23686/keys
+
+9.Retrieve document from task 8 from the db
+curl -i http://localhost:8098/buckets/s23686/keys/SX7IQ45ZAjfc0BiimQF5hiOtE2p
+
+10.Delete document from task 8 from the db
+
+curl -i -XDELETE http://localhost:8098/buckets/s23686/keys/SX7IQ45ZAjfc0BiimQF5hiOtE2p
