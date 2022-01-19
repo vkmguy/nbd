@@ -48,3 +48,10 @@ WHERE oFlight.airline=dFlight.airline
 RETURN oFlight.airline,count(distinct oAirport) as CountFromCity, count(distinct dAirport) as CountToCity
 
 10.Cheapest connection between 3 different airports
+MATCH path = (originAP:Airport)<-[origin:ORIGIN]-(flightA:Flight)-[destinationA:DESTINATION]->(midAP:Airport)<-[midOrigin:ORIGIN]-(flightB:Flight)-[destination:DESTINATION]->(destinationAP:Airport)
+WHERE originAP<>midAP AND originAP<>destinationAP AND midAP<>destinationAP
+WITH path, REDUCE(sum = 0, n IN [p IN NODES(path) WHERE 'Flight' IN LABELS(p)] |
+  sum + [(n)<-[:ASSIGN]-(ticket {class: 'economy'}) | ticket.price][0]
+  ) as price
+RETURN path, price
+ORDER BY price asc LIMIT 1
